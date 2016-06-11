@@ -51,3 +51,6 @@ new_list.delete_multiple_items(2, 3)
 new_list.all
 
 #2. New Feature: Change the priority levels of items
+#Changing priority of first item from Untitled list from Medium to High
+new_list.items[0].set_priority("high")
+new_list.all
