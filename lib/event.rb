@@ -10,6 +10,7 @@ class EventItem
     @end_date = Chronic.parse(options[:end_date]) if options[:end_date]
 
   end
+
   # def format_description
   #   "#{@description}".ljust(25)
   # end

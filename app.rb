@@ -22,7 +22,7 @@ list.all
 
 # SHOULD CREATE AN UNTITLED LIST AND ADD ITEMS TO IT
 # --------------------------------------------------
-new_list = UdaciList.new # Should create a list called "Untitled List"
+new_list = UdaciList.new(title: "Untitled List") # Should create a list called "Untitled List"
 new_list.add("todo", "Buy more dog food", due: "in 5 weeks", priority: "medium")
 new_list.add("todo", "Go dancing", due: "in 2 hours")
 new_list.add("todo", "Buy groceries", priority: "high")
@@ -37,11 +37,12 @@ new_list.add("link", "http://ruby-doc.org")
 # ----------------------------
 # new_list.add("image", "http://ruby-doc.org") # Throws InvalidItemType error
 # new_list.delete(9) # Throws an IndexExceedsListSize error
-new_list.add("todo", "Hack some portals", priority: "super high") # throws an InvalidPriorityValue error
+# new_list.add("todo", "Hack some portals", priority: "super high") # throws an InvalidPriorityValue error
 # DISPLAY UNTITLED LIST
 # ---------------------
-# new_list.all
+new_list.all
 
 # DEMO FILTER BY ITEM TYPE
 # ------------------------
-# new_list.filter("event")
+new_list.filter("event")
+

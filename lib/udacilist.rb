@@ -15,6 +15,32 @@ class UdaciList
 
   end
 
+  def filter(type)
+    className = "TodoItem" if type == "todo"
+    className = "EventItem" if type == "event"
+    className = "LinkItem" if type == "link"
+
+    if className.nil?
+      puts "Wrong type: #{type}"
+      return
+    end
+
+
+    filtered_items=[]
+    @items.each do |item|
+      if item.instance_of?(Object.const_get(className))
+        filtered_items<<item
+      end
+    end
+
+    if filtered_items.empty?
+      puts "No items of type: #{type}"
+    else
+      print_array("Filtered by type: #{type}", filtered_items)
+    end
+    return filtered_items
+
+  end
 
   def delete(index)
 
@@ -23,12 +49,20 @@ class UdaciList
     @items.delete_at(index - 1)
   end
   def all
-    puts "-" * @title.length
-    puts @title
-    puts "-" * @title.length
-    @items.each_with_index do |item, position|
-      puts "#{position + 1}) #{item.details}"
-    end
+    print_array(@title, @items)
+
+
   end
 
+
+  def print_array(title, items)
+    # code here
+    puts "-" * title.length
+    puts title
+    puts "-" * @title.length
+    items.each_with_index do |item, position|
+      puts "#{position + 1}) #{item.details}"
+
+    end
+  end
 end
