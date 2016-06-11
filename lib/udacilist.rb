@@ -61,7 +61,7 @@ class UdaciList
     puts title
     puts "-" * @title.length
     items.each_with_index do |item, position|
-      puts "#{position + 1}) #{item.details}"
+      puts "#{position + 1})".colorize(:light_blue)+" #{item.details}"
 
     end
   end

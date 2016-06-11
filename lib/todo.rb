@@ -22,7 +22,7 @@ class TodoItem
     value = " ⇨" if @priority == "medium"
     value = " ⇩" if @priority == "low"
     value = "" if !@priority
-    return value
+    return value.colorize(:red)
 
 
   end
