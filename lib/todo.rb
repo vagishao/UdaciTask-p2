@@ -7,6 +7,7 @@ class TodoItem
     # @due = options[:due] ? Date.parse(options[:due]) : options[:due]
     @due = options[:due] ? Chronic.parse(options[:due]) : options[:due]
     @priority = options[:priority]
+    format_priority
   end
   # def format_description
   #   "#{@description}".ljust(25)
@@ -15,17 +16,18 @@ class TodoItem
     @due ? @due.strftime("%D") : "No due date"
   end
   def format_priority
-#    raise Errors::InvalidPriorityValue, "Invalid Priority Value" if priority!="high" and priority!="medium" and priority!="low"
+    raise Errors::InvalidPriorityValue, "Invalid Priority Value" if @priority !=nil and @priority!="high" and @priority!="medium" and @priority!="low"
 
     value = " ⇧" if @priority == "high"
     value = " ⇨" if @priority == "medium"
     value = " ⇩" if @priority == "low"
     value = "" if !@priority
     return value
+
+
   end
   def details
     format_description(@description) + "due: " +
-    format_date +
-    format_priority
+        format_date + format_priority
   end
 end
