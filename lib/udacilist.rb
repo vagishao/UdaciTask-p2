@@ -48,9 +48,22 @@ class UdaciList
 
     @items.delete_at(index - 1)
   end
+
+  def delete_multiple_items(*indices)
+
+    indices.each do |index|
+      @items.delete_at(index) if is_index_valid?(index)
+    end
+
+  end
+
+
+  def is_index_valid?(index)
+    index>-1 and index<@items.length
+  end
+
   def all
     print_array(@title, @items)
-
 
   end
 

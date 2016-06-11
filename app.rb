@@ -46,3 +46,8 @@ new_list.all
 # ------------------------
 new_list.filter("event")
 
+#1. New Feature: Delete multiple items
+new_list.delete_multiple_items(2, 3)
+new_list.all
+
+#2. New Feature: Change the priority levels of items
