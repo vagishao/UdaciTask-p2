@@ -2,12 +2,20 @@
 # -------------------------------------------------------
 1. What is the gem of your choice and how did you use it?
 2. Describe the 2 features you added to the project.
-  a) Feature 1...
-  b) Feature 2...
+  a) Feature 1 : Delete multiple items - It takes multiple indices and deletes the items.
+  b) Feature 2 : Change the priority levels of items
 
 # REFLECTIONS
 # -------------------------------------------------------
 1. How long did you spend working on this project?
+   It took me 5 days to complete this project.
+
 2. What was the most rewarding challenge you conquered?
+   Learning how to use Ruby gems
+
 3. What two additional features did you build? Why?
+   1. Delete multiple items. This will allow to delete multiple items
+   2. Change the priority levels of items. This allows to change priority of item.
+
 4. Where do you still have room to grow?
+   I need to practice more.
