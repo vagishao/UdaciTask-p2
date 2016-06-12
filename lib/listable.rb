@@ -4,14 +4,14 @@ module Listable
   end
 
   def format_name(site_name)
-    site_name ? site_name : ""
+    site_name ? site_name.ljust(32) : "".ljust(32)
   end
 
   def format_date(start_date, end_date)
     dates = start_date.strftime("%D") if start_date
     dates << " -- " + end_date.strftime("%D") if end_date
     dates = "N/A" if !dates
-    return dates
+    return dates.ljust(30)
   end
 
   def format_priority(priority)
@@ -20,7 +20,7 @@ module Listable
     value = " ⇨" if priority == "medium"
     value = " ⇩" if priority == "low"
     value = "" if !priority
-    return value.colorize(:red)
+    return value.ljust(30).colorize(:red)
 
   end
 

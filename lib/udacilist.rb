@@ -16,19 +16,12 @@ class UdaciList
   end
 
   def filter(type)
-    className = "TodoItem" if type == "todo"
-    className = "EventItem" if type == "event"
-    className = "LinkItem" if type == "link"
 
-    if className.nil?
-      puts "Wrong type: #{type}"
-      return
-    end
-
+    class_name = get_classname_from_item_type(type)
 
     filtered_items=[]
     @items.each do |item|
-      if item.instance_of?(Object.const_get(className))
+      if item.instance_of?(Object.const_get(class_name))
         filtered_items<<item
       end
     end
@@ -74,8 +67,33 @@ class UdaciList
     puts title
     puts "-" * @title.length
     items.each_with_index do |item, position|
-      puts "#{position + 1})".colorize(:light_blue)+" #{item.details}"
+      type=get_type_from_item(item)
+      puts "#{position + 1})".colorize(:light_blue)+" #{item.details}"+ "type: #{type}"
 
     end
+  end
+
+  def get_classname_from_item_type(type)
+    class_name = "TodoItem" if type == "todo"
+    class_name = "EventItem" if type == "event"
+    class_name = "LinkItem" if type == "link"
+
+    if class_name.nil?
+      raise Errors::InvalidItemType, "Invalid Item Type"
+      return
+    end
+
+    return class_name
+
+
+  end
+
+  def get_type_from_item(item)
+    type = "todo" if item.instance_of?(TodoItem)
+    type = "event" if item.instance_of?(EventItem)
+    type = "link" if item.instance_of?(LinkItem)
+
+    return type
+
   end
 end
